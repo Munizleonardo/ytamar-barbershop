@@ -103,3 +103,26 @@
   background: linear-gradient(to right, transparent, #444, transparent);
   height: 1px;
 }
+
+/* About carousel — taller on desktop, shorter on mobile */
+.about-carousel {
+  aspect-ratio: 4 / 5;
+}
+
+@media (max-width: 768px) {
+  .about-carousel {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* Prevent horizontal overflow on all devices */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Tap highlight removal on mobile interactive elements */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+

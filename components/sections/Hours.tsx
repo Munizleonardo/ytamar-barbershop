@@ -18,23 +18,14 @@ const schedule = [
 const dayMap: Record<number, number> = { 0: 6, 1: 0, 2: 1, 3: 2, 4: 3, 5: 4, 6: 5 };
 
 export const Hours = () => {
-  const todayIndex = new Date().getDay();
-  const todayScheduleIndex = dayMap[todayIndex];
+  const todayScheduleIndex = dayMap[new Date().getDay()];
   const today = schedule[todayScheduleIndex];
 
   return (
-    <section id="hours" style={{ padding: '100px 0', background: '#0a0a0a' }}>
+    <section id="hours" className="py-16 md:py-24" style={{ background: '#0a0a0a' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-        <div
-          style={{
-            textAlign: 'center',
-            marginBottom: '60px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '16px',
-          }}
-        >
+        {/* Header */}
+        <div className="flex flex-col items-center text-center gap-4 mb-10 md:mb-14">
           <Badge variant="outline">
             <Clock size={12} style={{ marginRight: '6px' }} />
             Funcionamento
@@ -50,9 +41,11 @@ export const Hours = () => {
             Horários de Atendimento
           </h2>
           <p style={{ color: '#666', maxWidth: '480px', lineHeight: 1.7 }}>
-            Estamos abertos para te atender durante a semana. Confira os horários abaixo e agende o seu horário.
+            Estamos abertos para te atender durante a semana. Confira os horários abaixo e agende o
+            seu horário.
           </p>
 
+          {/* Today highlight */}
           <div
             style={{
               display: 'inline-flex',
@@ -61,7 +54,7 @@ export const Hours = () => {
               background: today.open ? 'rgba(255,255,255,0.05)' : 'rgba(239,68,68,0.1)',
               border: `1px solid ${today.open ? 'rgba(255,255,255,0.1)' : 'rgba(239,68,68,0.3)'}`,
               borderRadius: '12px',
-              padding: '12px 24px',
+              padding: '12px 20px',
               marginTop: '8px',
             }}
           >
@@ -72,14 +65,18 @@ export const Hours = () => {
                 borderRadius: '50%',
                 background: today.open ? '#22c55e' : '#ef4444',
                 animation: today.open ? 'pulse 2s infinite' : 'none',
+                flexShrink: 0,
               }}
             />
-            <span style={{ color: '#888', fontSize: '14px' }}>Hoje ({today.day}):</span>
+            <span style={{ color: '#888', fontSize: '14px', whiteSpace: 'nowrap' }}>
+              Hoje ({today.day}):
+            </span>
             <span
               style={{
                 color: today.open ? '#d1d1d1' : '#ef4444',
                 fontWeight: 600,
                 fontSize: '14px',
+                whiteSpace: 'nowrap',
               }}
             >
               {today.hours}
@@ -87,14 +84,8 @@ export const Hours = () => {
           </div>
         </div>
 
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: '12px',
-            justifyContent: 'center',
-          }}
-        >
+        {/* Schedule grid — 2 cols mobile → 4 cols sm → 7 cols lg */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
           {schedule.map((item, i) => {
             const isToday = i === todayScheduleIndex;
             const isClosed = !item.open;
@@ -103,10 +94,6 @@ export const Hours = () => {
               <Card
                 key={item.day}
                 style={{
-                  flex: '1 1 140px',
-                  maxWidth: '160px',
-                  padding: '20px 16px',
-                  textAlign: 'center',
                   border: isToday
                     ? '1px solid rgba(209,209,209,0.5)'
                     : isClosed
@@ -121,7 +108,10 @@ export const Hours = () => {
                   position: 'relative',
                   overflow: 'hidden',
                 }}
-                className={cn(!isClosed && !isToday && 'hover:border-white/20')}
+                className={cn(
+                  'text-center py-4 px-2 md:py-5 md:px-3',
+                  !isClosed && !isToday && 'hover:border-white/20'
+                )}
               >
                 {isToday && (
                   <div
@@ -138,18 +128,19 @@ export const Hours = () => {
                 )}
                 <div
                   style={{
-                    fontSize: '11px',
+                    fontSize: '10px',
                     fontWeight: 700,
                     letterSpacing: '2px',
                     color: isClosed ? '#ef4444' : isToday ? '#d1d1d1' : '#888',
-                    marginBottom: '8px',
+                    marginBottom: '6px',
                   }}
                 >
                   {item.short}
                 </div>
                 <div
+                  className="hidden sm:block"
                   style={{
-                    fontSize: '13px',
+                    fontSize: '12px',
                     color: isClosed ? '#666' : isToday ? '#aaa' : '#555',
                     fontWeight: 500,
                     marginBottom: '4px',
@@ -159,15 +150,16 @@ export const Hours = () => {
                 </div>
                 <div
                   style={{
-                    fontSize: '12px',
+                    fontSize: '11px',
                     color: isClosed ? '#ef4444' : isToday ? '#d1d1d1' : '#666',
                     fontWeight: isClosed ? 600 : 400,
-                    marginTop: '8px',
-                    paddingTop: '8px',
+                    marginTop: '6px',
+                    paddingTop: '6px',
                     borderTop: `1px solid ${isClosed ? 'rgba(239,68,68,0.2)' : 'rgba(255,255,255,0.06)'}`,
+                    lineHeight: 1.3,
                   }}
                 >
-                  {item.hours}
+                  {isClosed ? 'Fechado' : item.hours}
                 </div>
               </Card>
             );

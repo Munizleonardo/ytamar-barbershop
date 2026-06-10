@@ -23,28 +23,14 @@ export const Footer = () => (
     style={{
       background: '#080808',
       borderTop: '1px solid rgba(255,255,255,0.06)',
-      padding: '60px 0 32px',
+      padding: '56px 0 32px',
     }}
   >
     <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-      <div
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '40px',
-          justifyContent: 'space-between',
-          marginBottom: '48px',
-        }}
-      >
+      {/* Top row — stacks on mobile, 3 columns on sm+ */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 mb-12">
         {/* Brand */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '16px',
-            maxWidth: '280px',
-          }}
-        >
+        <div className="flex flex-col gap-4">
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div style={{ border: '2px solid #555', borderRadius: '50%', padding: '8px' }}>
               <Scissors size={20} style={{ color: '#d1d1d1' }} />
@@ -61,7 +47,14 @@ export const Footer = () => (
               >
                 YTAMAR
               </div>
-              <div style={{ color: '#555', fontSize: '9px', letterSpacing: '4px', fontWeight: 600 }}>
+              <div
+                style={{
+                  color: '#555',
+                  fontSize: '9px',
+                  letterSpacing: '4px',
+                  fontWeight: 600,
+                }}
+              >
                 BARBERSHOP
               </div>
             </div>
@@ -69,7 +62,7 @@ export const Footer = () => (
           <p style={{ color: '#555', fontSize: '13px', lineHeight: 1.7 }}>
             Arte, estilo e precisão em cada corte. Desde 2016 transformando visuais em São Paulo.
           </p>
-          <div style={{ display: 'flex', gap: '10px' }}>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             {socials.map(({ Icon, href, label }) => (
               <a
                 key={href}
@@ -94,13 +87,13 @@ export const Footer = () => (
           </div>
         </div>
 
-        {/* Links */}
+        {/* Navigation */}
         <div>
           <div
             style={{
               color: '#d1d1d1',
               fontWeight: 600,
-              fontSize: '14px',
+              fontSize: '13px',
               letterSpacing: '1px',
               marginBottom: '16px',
               textTransform: 'uppercase',
@@ -117,7 +110,12 @@ export const Footer = () => (
                   e.preventDefault();
                   document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                style={{ color: '#555', fontSize: '14px', textDecoration: 'none', transition: 'color 0.2s' }}
+                style={{
+                  color: '#555',
+                  fontSize: '14px',
+                  textDecoration: 'none',
+                  transition: 'color 0.2s',
+                }}
                 className="hover:text-silver-300"
               >
                 {link.label}
@@ -132,7 +130,7 @@ export const Footer = () => (
             style={{
               color: '#d1d1d1',
               fontWeight: 600,
-              fontSize: '14px',
+              fontSize: '13px',
               letterSpacing: '1px',
               marginBottom: '16px',
               textTransform: 'uppercase',
@@ -143,7 +141,9 @@ export const Footer = () => (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
             <div style={{ color: '#555', fontSize: '14px' }}>Rua Exemplo, 123 – SP</div>
             <div style={{ color: '#555', fontSize: '14px' }}>(11) 99999-9999</div>
-            <div style={{ color: '#555', fontSize: '14px' }}>contato@ytamarbarbershop.com.br</div>
+            <div style={{ color: '#555', fontSize: '14px' }}>
+              contato@ytamarbarbershop.com.br
+            </div>
             <a
               href="https://wa.me/5511999999999"
               target="_blank"
@@ -168,17 +168,9 @@ export const Footer = () => (
 
       <Separator />
 
-      <div
-        style={{
-          marginTop: '28px',
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '12px',
-        }}
-      >
-        <div style={{ color: '#444', fontSize: '13px' }}>
+      {/* Bottom bar */}
+      <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-3 mt-7">
+        <div style={{ color: '#444', fontSize: '13px', textAlign: 'center' }}>
           © 2024 Ytamar BarberShop. Todos os direitos reservados.
         </div>
         <div
@@ -191,7 +183,7 @@ export const Footer = () => (
           }}
         >
           Feito com{' '}
-          <Heart size={12} style={{ color: '#ef4444', fill: '#ef4444', margin: '0 2px' }} />{' '}
+          <Heart size={12} style={{ color: '#ef4444', fill: '#ef4444', margin: '0 2px' }} />
           em São Paulo
         </div>
       </div>

@@ -16,6 +16,7 @@ const navLinks = [
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -28,63 +29,50 @@ export const Header = () => {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleMobileNav = (href: string) => {
+    setSheetOpen(false);
+    setTimeout(() => scrollTo(href), 200);
+  };
+
   return (
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         scrolled
           ? 'bg-black/90 backdrop-blur-md border-b border-white/10 py-2'
-          : 'bg-transparent py-4'
+          : 'bg-transparent py-3 md:py-4'
       )}
     >
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0 24px',
-          gap: '24px',
-        }}
-      >
-        {/* Logo */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-            cursor: 'pointer',
-            flexShrink: 0,
-          }}
-          className={cn('transition-all duration-500', scrolled ? 'animate-float' : '')}
+      <div className="flex items-center justify-between gap-3 mx-auto px-4 md:px-6 max-w-[1200px]">
+
+        {/* ── Logo ── */}
+        <button
+          className="flex items-center gap-2 cursor-pointer flex-shrink-0 bg-transparent border-none"
           onClick={() => scrollTo('#hero')}
         >
+          {/* Icon circle – sempre compacto no mobile */}
           <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: '50%',
-              border: '2px solid #888',
-              padding: scrolled ? '6px' : '10px',
-              transition: 'all 0.5s',
-            }}
+            className={cn(
+              'flex items-center justify-center rounded-full border-2 border-[#888] transition-all duration-500',
+              'p-[6px] md:p-[8px]',
+              scrolled && 'md:p-[6px]'
+            )}
           >
             <Scissors
-              style={{ color: '#d1d1d1', transition: 'all 0.5s' }}
-              size={scrolled ? 18 : 26}
+              className="text-silver-200 transition-all duration-500"
+              size={18}
             />
           </div>
+          {/* Text */}
           <div style={{ lineHeight: 1 }}>
             <div
               style={{
                 color: '#d1d1d1',
                 fontFamily: 'var(--font-playfair), serif',
                 fontWeight: 700,
-                transition: 'all 0.5s',
-                fontSize: scrolled ? '14px' : '18px',
                 letterSpacing: '2px',
+                fontSize: 'clamp(13px, 3.5vw, 18px)',
+                transition: 'all 0.4s',
               }}
             >
               YTAMAR
@@ -92,29 +80,20 @@ export const Header = () => {
             <div
               style={{
                 color: '#888',
-                fontSize: scrolled ? '8px' : '11px',
-                letterSpacing: '4px',
+                fontSize: 'clamp(7px, 1.8vw, 10px)',
+                letterSpacing: '3px',
                 fontWeight: 600,
-                transition: 'all 0.5s',
                 textTransform: 'uppercase',
+                transition: 'all 0.4s',
               }}
             >
               BarberShop
             </div>
           </div>
-        </div>
+        </button>
 
-        {/* Nav Desktop */}
-        <nav
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '4px',
-            flex: 1,
-            justifyContent: 'center',
-          }}
-          className="hidden md:flex"
-        >
+        {/* ── Nav Desktop ── */}
+        <nav className="hidden md:flex items-center gap-1 flex-1 justify-center">
           {navLinks.map((link) => (
             <button
               key={link.href}
@@ -126,8 +105,8 @@ export const Header = () => {
           ))}
         </nav>
 
-        {/* WhatsApp CTA – Desktop */}
-        <div style={{ flexShrink: 0 }} className="hidden md:flex">
+        {/* ── WhatsApp CTA Desktop ── */}
+        <div className="hidden md:flex flex-shrink-0">
           <Button
             variant="whatsapp"
             size="sm"
@@ -143,36 +122,41 @@ export const Header = () => {
           </Button>
         </div>
 
-        {/* Mobile menu – shadcn Sheet */}
-        <Sheet>
+        {/* ── Mobile Sheet ── */}
+        <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
           <SheetTrigger asChild>
-            <button className="md:hidden text-silver-300 hover:text-white transition-colors cursor-pointer">
-              <Menu size={24} />
+            <button className="md:hidden flex items-center justify-center w-9 h-9 text-silver-300 hover:text-white transition-colors cursor-pointer rounded-md hover:bg-white/5">
+              <Menu size={22} />
             </button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-72 pt-14 px-6 flex flex-col gap-2">
+
+          <SheetContent side="right" className="w-[280px] sm:w-72 pt-16 px-5">
             <SheetTitle className="sr-only">Menu de navegação</SheetTitle>
-            {navLinks.map((link) => (
-              <SheetTrigger key={link.href} asChild>
+
+            <div className="flex flex-col gap-1">
+              {navLinks.map((link) => (
                 <button
-                  onClick={() => scrollTo(link.href)}
-                  className="text-silver-300 hover:text-white text-left px-4 py-3 rounded-md hover:bg-white/5 text-base font-medium cursor-pointer transition-colors"
+                  key={link.href}
+                  onClick={() => handleMobileNav(link.href)}
+                  className="w-full text-left text-silver-300 hover:text-white px-4 py-3 rounded-lg hover:bg-white/5 text-base font-medium cursor-pointer transition-colors"
                 >
                   {link.label}
                 </button>
-              </SheetTrigger>
-            ))}
-            <div className="mt-4">
+              ))}
+            </div>
+
+            <div className="mt-5 pt-5 border-t border-white/10">
               <Button
                 variant="whatsapp"
                 size="sm"
                 className="w-full"
-                onClick={() =>
+                onClick={() => {
+                  setSheetOpen(false);
                   window.open(
                     'https://wa.me/5511999999999?text=Olá! Gostaria de agendar um horário.',
                     '_blank'
-                  )
-                }
+                  );
+                }}
               >
                 <MessageCircle size={16} />
                 Agendar pelo WhatsApp

@@ -7,24 +7,28 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
 const socials = [
-  { icon: Globe, label: '@ytamarbarbershop (Instagram)', href: 'https://instagram.com/ytamarbarbershop' },
-  { icon: Share2, label: 'Ytamar BarberShop (Facebook)', href: 'https://facebook.com/ytamarbarbershop' },
-  { icon: Globe, label: 'Ytamar BarberShop (YouTube)', href: 'https://youtube.com/@ytamarbarbershop' },
+  {
+    icon: Globe,
+    label: '@ytamarbarbershop (Instagram)',
+    href: 'https://instagram.com/ytamarbarbershop',
+  },
+  {
+    icon: Share2,
+    label: 'Ytamar BarberShop (Facebook)',
+    href: 'https://facebook.com/ytamarbarbershop',
+  },
+  {
+    icon: Globe,
+    label: 'Ytamar BarberShop (YouTube)',
+    href: 'https://youtube.com/@ytamarbarbershop',
+  },
 ];
 
 export const Location = () => (
-  <section id="location" style={{ padding: '100px 0', background: '#0a0a0a' }}>
+  <section id="location" className="py-16 md:py-24" style={{ background: '#0a0a0a' }}>
     <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-      <div
-        style={{
-          textAlign: 'center',
-          marginBottom: '60px',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '16px',
-        }}
-      >
+      {/* Header */}
+      <div className="flex flex-col items-center text-center gap-4 mb-10 md:mb-14">
         <Badge variant="outline">
           <MapPin size={12} style={{ marginRight: '6px' }} />
           Localização
@@ -44,22 +48,28 @@ export const Location = () => (
         </p>
       </div>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', alignItems: 'stretch' }}>
+      {/* Map + info — stacked on mobile, side-by-side on lg */}
+      <div className="flex flex-col lg:flex-row gap-8 items-stretch">
         {/* Map */}
         <div
+          className="w-full lg:flex-1"
           style={{
-            flex: '1 1 400px',
             borderRadius: '16px',
             overflow: 'hidden',
             border: '1px solid rgba(255,255,255,0.08)',
-            minHeight: '400px',
+            minHeight: '320px',
           }}
         >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.3!2d-46.633!3d-23.548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMyJzUyLjgiUyA0NsKwMzgn0!5e0!3m2!1spt-BR!2sbr!4v1"
             width="100%"
             height="100%"
-            style={{ border: 'none', minHeight: '400px', filter: 'invert(90%) hue-rotate(180deg)' }}
+            style={{
+              border: 'none',
+              minHeight: '320px',
+              filter: 'invert(90%) hue-rotate(180deg)',
+              display: 'block',
+            }}
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -68,9 +78,12 @@ export const Location = () => (
         </div>
 
         {/* Info */}
-        <div style={{ flex: '1 1 300px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div className="w-full lg:w-80 flex flex-col gap-4">
           <Card>
-            <CardContent style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            <CardContent
+              style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '20px' }}
+            >
+              {/* Address */}
               <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
                 <div
                   style={{
@@ -83,9 +96,12 @@ export const Location = () => (
                   <MapPin size={18} style={{ color: '#d1d1d1' }} />
                 </div>
                 <div>
-                  <div style={{ color: '#d1d1d1', fontWeight: 600, marginBottom: '4px' }}>Endereço</div>
+                  <div style={{ color: '#d1d1d1', fontWeight: 600, marginBottom: '4px' }}>
+                    Endereço
+                  </div>
                   <div style={{ color: '#888', fontSize: '14px', lineHeight: 1.6 }}>
-                    Rua Exemplo, 123 – Bairro<br />
+                    Rua Exemplo, 123 – Bairro
+                    <br />
                     São Paulo – SP, 01310-000
                   </div>
                 </div>
@@ -93,6 +109,7 @@ export const Location = () => (
 
               <Separator />
 
+              {/* Phone */}
               <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
                 <div
                   style={{
@@ -105,11 +122,14 @@ export const Location = () => (
                   <Phone size={18} style={{ color: '#d1d1d1' }} />
                 </div>
                 <div>
-                  <div style={{ color: '#d1d1d1', fontWeight: 600, marginBottom: '4px' }}>Telefone</div>
+                  <div style={{ color: '#d1d1d1', fontWeight: 600, marginBottom: '4px' }}>
+                    Telefone
+                  </div>
                   <div style={{ color: '#888', fontSize: '14px' }}>(11) 99999-9999</div>
                 </div>
               </div>
 
+              {/* Action buttons */}
               <div style={{ display: 'flex', gap: '10px' }}>
                 <Button
                   variant="whatsapp"
@@ -133,14 +153,20 @@ export const Location = () => (
             </CardContent>
           </Card>
 
+          {/* Socials */}
           <Card>
             <CardContent style={{ padding: '24px' }}>
               <div
-                style={{ color: '#d1d1d1', fontWeight: 600, marginBottom: '16px', fontSize: '15px' }}
+                style={{
+                  color: '#d1d1d1',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                  fontSize: '15px',
+                }}
               >
                 Redes Sociais
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 {socials.map(({ icon: Icon, label, href }) => (
                   <a
                     key={href}
@@ -160,8 +186,8 @@ export const Location = () => (
                     }}
                     className="hover:bg-white/5 hover:text-silver-200"
                   >
-                    <Icon size={18} />
-                    <span style={{ fontSize: '14px' }}>{label}</span>
+                    <Icon size={18} style={{ flexShrink: 0 }} />
+                    <span style={{ fontSize: '13px' }}>{label}</span>
                   </a>
                 ))}
               </div>

@@ -49,28 +49,27 @@ export const About = () => {
   useEffect(() => {
     intervalRef.current = setInterval(() => go(1), 4000);
     return () => clearInterval(intervalRef.current);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <section
       id="about"
-      style={{
-        padding: '100px 0',
-        background: 'linear-gradient(180deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%)',
-      }}
+      className="py-16 md:py-24"
+      style={{ background: 'linear-gradient(180deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%)' }}
     >
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px' }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '64px', alignItems: 'center' }}>
+        {/* Responsive two-column layout */}
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
 
-          {/* Carousel */}
-          <div style={{ flex: '1 1 380px', position: 'relative' }}>
+          {/* ── Carousel ── */}
+          <div className="w-full lg:flex-1 relative">
             <div
+              className="about-carousel"
               style={{
                 position: 'relative',
                 borderRadius: '16px',
                 overflow: 'hidden',
-                aspectRatio: '4/5',
                 border: '1px solid rgba(255,255,255,0.08)',
               }}
             >
@@ -117,13 +116,22 @@ export const About = () => {
                   right: 0,
                   padding: '32px 24px 24px',
                   background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
+                  zIndex: 2,
                 }}
               >
-                <p style={{ color: '#d1d1d1', fontWeight: 500, fontSize: '14px', letterSpacing: '1px' }}>
+                <p
+                  style={{
+                    color: '#d1d1d1',
+                    fontWeight: 500,
+                    fontSize: '14px',
+                    letterSpacing: '1px',
+                  }}
+                >
                   {carouselImages[current].caption}
                 </p>
               </div>
 
+              {/* Nav arrows */}
               <button
                 onClick={() => go(-1)}
                 style={{
@@ -142,7 +150,7 @@ export const About = () => {
                   cursor: 'pointer',
                   color: '#d1d1d1',
                   transition: 'all 0.2s',
-                  zIndex: 2,
+                  zIndex: 3,
                 }}
                 className="hover:bg-white/20"
               >
@@ -166,7 +174,7 @@ export const About = () => {
                   cursor: 'pointer',
                   color: '#d1d1d1',
                   transition: 'all 0.2s',
-                  zIndex: 2,
+                  zIndex: 3,
                 }}
                 className="hover:bg-white/20"
               >
@@ -174,6 +182,7 @@ export const About = () => {
               </button>
             </div>
 
+            {/* Dots */}
             <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', marginTop: '16px' }}>
               {carouselImages.map((_, i) => (
                 <button
@@ -193,14 +202,14 @@ export const About = () => {
             </div>
           </div>
 
-          {/* Text */}
-          <div style={{ flex: '1 1 340px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          {/* ── Text ── */}
+          <div className="w-full lg:flex-1 flex flex-col gap-6">
             <Badge variant="outline">Nossa História</Badge>
 
             <h2
               style={{
                 fontFamily: 'var(--font-playfair), serif',
-                fontSize: 'clamp(28px, 4vw, 44px)',
+                fontSize: 'clamp(26px, 4vw, 44px)',
                 fontWeight: 700,
                 color: 'white',
                 lineHeight: 1.2,
@@ -222,21 +231,28 @@ export const About = () => {
               <p style={{ color: '#888', fontStyle: 'italic', lineHeight: 1.7 }}>
                 &quot;Cada cliente merece sair daqui sentindo que é a melhor versão de si mesmo.&quot;
               </p>
-              <p style={{ color: '#555', fontSize: '13px', marginTop: '8px' }}>— Ytamar, Fundador</p>
+              <p style={{ color: '#555', fontSize: '13px', marginTop: '8px' }}>
+                — Ytamar, Fundador
+              </p>
             </div>
 
             <Separator />
 
             <p style={{ color: '#888', lineHeight: 1.8, fontSize: '15px' }}>
               Fundada em 2016, a <strong style={{ color: '#d1d1d1' }}>Ytamar BarberShop</strong>{' '}
-              nasceu do sonho de criar um espaço onde tradição e modernidade se encontram. Com mais de 8 anos de experiência, nos tornamos referência em cortes masculinos de alta qualidade no coração de São Paulo.
+              nasceu do sonho de criar um espaço onde tradição e modernidade se encontram. Com mais de
+              8 anos de experiência, nos tornamos referência em cortes masculinos de alta qualidade no
+              coração de São Paulo.
             </p>
 
             <p style={{ color: '#888', lineHeight: 1.8, fontSize: '15px' }}>
-              Nossa equipe de barbeiros altamente qualificados domina desde o clássico corte a navalha até as tendências mais contemporâneas. Cada visita é pensada para ser uma experiência completa de cuidado e estilo.
+              Nossa equipe de barbeiros altamente qualificados domina desde o clássico corte a navalha
+              até as tendências mais contemporâneas. Cada visita é pensada para ser uma experiência
+              completa de cuidado e estilo.
             </p>
 
-            <div style={{ display: 'flex', gap: '32px', paddingTop: '8px' }}>
+            {/* Pricing */}
+            <div className="grid grid-cols-3 gap-4 pt-2">
               {[
                 ['Corte', 'A partir de R$45'],
                 ['Barba', 'A partir de R$30'],
@@ -244,7 +260,7 @@ export const About = () => {
               ].map(([svc, price]) => (
                 <div key={svc}>
                   <div style={{ color: '#d1d1d1', fontWeight: 600, fontSize: '15px' }}>{svc}</div>
-                  <div style={{ color: '#666', fontSize: '13px' }}>{price}</div>
+                  <div style={{ color: '#666', fontSize: '12px', lineHeight: 1.5 }}>{price}</div>
                 </div>
               ))}
             </div>
