@@ -1,6 +1,6 @@
 'use client';
 
-import { Scissors, MessageCircle, Heart, Globe, Share2 } from 'lucide-react';
+import { Scissors, MessageCircle, Globe, Share2 } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
 const navLinks = [
@@ -172,19 +172,6 @@ export const Footer = () => (
       <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-3 mt-7">
         <div style={{ color: '#444', fontSize: '13px', textAlign: 'center' }}>
           © 2024 Ytamar BarberShop. Todos os direitos reservados.
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '4px',
-            color: '#333',
-            fontSize: '12px',
-          }}
-        >
-          Feito com{' '}
-          <Heart size={12} style={{ color: '#ef4444', fill: '#ef4444', margin: '0 2px' }} />
-          em São Paulo
         </div>
       </div>
     </div>
