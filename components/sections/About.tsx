@@ -242,7 +242,7 @@ export const About = () => {
               Fundada em 2016, a <strong style={{ color: '#d1d1d1' }}>Ytamar BarberShop</strong>{' '}
               nasceu do sonho de criar um espaço onde tradição e modernidade se encontram. Com mais de
               8 anos de experiência, nos tornamos referência em cortes masculinos de alta qualidade no
-              coração de São Paulo.
+              coração de São José – SC.
             </p>
 
             <p style={{ color: '#888', lineHeight: 1.8, fontSize: '15px' }}>

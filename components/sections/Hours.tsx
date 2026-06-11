@@ -6,12 +6,12 @@ import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 
 const schedule = [
-  { day: 'Segunda', short: 'SEG', hours: '09:00 – 19:00', open: true },
-  { day: 'Terça', short: 'TER', hours: '09:00 – 19:00', open: true },
-  { day: 'Quarta', short: 'QUA', hours: '09:00 – 19:00', open: true },
-  { day: 'Quinta', short: 'QUI', hours: '09:00 – 19:00', open: true },
+  { day: 'Segunda', short: 'SEG', hours: '09:00 – 20:00', open: true },
+  { day: 'Terça', short: 'TER', hours: '09:00 – 20:00', open: true },
+  { day: 'Quarta', short: 'QUA', hours: '09:00 – 20:00', open: true },
+  { day: 'Quinta', short: 'QUI', hours: '09:00 – 20:00', open: true },
   { day: 'Sexta', short: 'SEX', hours: '09:00 – 20:00', open: true },
-  { day: 'Sábado', short: 'SAB', hours: '08:00 – 18:00', open: true },
+  { day: 'Sábado', short: 'SAB', hours: '08:00 – 13:00', open: true },
   { day: 'Domingo', short: 'DOM', hours: 'Fechado', open: false },
 ];
 

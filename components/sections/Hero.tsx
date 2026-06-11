@@ -114,7 +114,7 @@ export const Hero = () => {
           }}
         >
           <Badge variant="outline" className="mb-5 md:mb-6">
-            Desde 2016 • São Paulo
+            Desde 2016 • São José – SC
           </Badge>
 
           <h1

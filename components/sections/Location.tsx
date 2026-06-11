@@ -1,6 +1,6 @@
 'use client';
 
-import { MapPin, Phone, Globe, Share2, MessageCircle, Navigation } from 'lucide-react';
+import { MapPin, Phone, Globe, MessageCircle, Navigation } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -9,18 +9,8 @@ import { Separator } from '@/components/ui/separator';
 const socials = [
   {
     icon: Globe,
-    label: '@ytamarbarbershop (Instagram)',
-    href: 'https://instagram.com/ytamarbarbershop',
-  },
-  {
-    icon: Share2,
-    label: 'Ytamar BarberShop (Facebook)',
-    href: 'https://facebook.com/ytamarbarbershop',
-  },
-  {
-    icon: Globe,
-    label: 'Ytamar BarberShop (YouTube)',
-    href: 'https://youtube.com/@ytamarbarbershop',
+    label: '@barbearia_ytamarbarbeshop (Instagram)',
+    href: 'https://www.instagram.com/barbearia_ytamarbarbeshop/',
   },
 ];
 
@@ -44,7 +34,7 @@ export const Location = () => (
           Como Chegar
         </h2>
         <p style={{ color: '#666', maxWidth: '480px', lineHeight: 1.7 }}>
-          Estamos localizados em um endereço de fácil acesso, no coração de São Paulo.
+          Estamos localizados em Barreiros, São José – SC. Fácil acesso, venha nos visitar!
         </p>
       </div>
 
@@ -61,7 +51,7 @@ export const Location = () => (
           }}
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.3!2d-46.633!3d-23.548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMyJzUyLjgiUyA0NsKwMzgn0!5e0!3m2!1spt-BR!2sbr!4v1"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.677463179783!2d-48.607349400000004!3d-27.572518799999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x952749b7de97c5e7%3A0xb2014bab24702eb0!2sR.%20Cap.%20Pedro%20Leite%2C%20220%20-%20Barreiros%2C%20S%C3%A3o%20Jos%C3%A9%20-%20SC%2C%2088117-600!5e0!3m2!1spt-BR!2sbr!4v1781179398187!5m2!1spt-BR!2sbr"
             width="100%"
             height="100%"
             style={{
@@ -100,9 +90,9 @@ export const Location = () => (
                     Endereço
                   </div>
                   <div style={{ color: '#888', fontSize: '14px', lineHeight: 1.6 }}>
-                    Rua Exemplo, 123 – Bairro
+                    R. Cap. Pedro Leite, 220 – Barreiros
                     <br />
-                    São Paulo – SP, 01310-000
+                    São José – SC, 88117-600
                   </div>
                 </div>
               </div>
@@ -125,7 +115,7 @@ export const Location = () => (
                   <div style={{ color: '#d1d1d1', fontWeight: 600, marginBottom: '4px' }}>
                     Telefone
                   </div>
-                  <div style={{ color: '#888', fontSize: '14px' }}>(11) 99999-9999</div>
+                  <div style={{ color: '#888', fontSize: '14px' }}>(48) 98860-5995</div>
                 </div>
               </div>
 
@@ -135,7 +125,7 @@ export const Location = () => (
                   variant="whatsapp"
                   size="sm"
                   className="flex-1"
-                  onClick={() => window.open('https://wa.me/5511999999999', '_blank')}
+                  onClick={() => window.open('https://wa.me/5548988605995', '_blank')}
                 >
                   <MessageCircle size={15} />
                   WhatsApp
@@ -144,7 +134,7 @@ export const Location = () => (
                   variant="outline"
                   size="sm"
                   className="flex-1"
-                  onClick={() => window.open('https://maps.google.com', '_blank')}
+                  onClick={() => window.open('https://maps.google.com/maps?q=R.+Cap.+Pedro+Leite,+220,+Barreiros,+S%C3%A3o+Jos%C3%A9+-+SC', '_blank')}
                 >
                   <Navigation size={15} />
                   Rotas

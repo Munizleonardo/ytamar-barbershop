@@ -1,6 +1,6 @@
 'use client';
 
-import { Scissors, MessageCircle, Globe, Share2 } from 'lucide-react';
+import { Scissors, MessageCircle, Globe } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
 const navLinks = [
@@ -12,10 +12,8 @@ const navLinks = [
 ];
 
 const socials = [
-  { Icon: Globe, href: 'https://instagram.com/ytamarbarbershop', label: 'Instagram' },
-  { Icon: Share2, href: 'https://facebook.com/ytamarbarbershop', label: 'Facebook' },
-  { Icon: Globe, href: 'https://youtube.com/@ytamarbarbershop', label: 'YouTube' },
-  { Icon: MessageCircle, href: 'https://wa.me/5511999999999', label: 'WhatsApp' },
+  { Icon: Globe, href: 'https://www.instagram.com/barbearia_ytamarbarbeshop/', label: 'Instagram' },
+  { Icon: MessageCircle, href: 'https://wa.me/5548988605995', label: 'WhatsApp' },
 ];
 
 export const Footer = () => (
@@ -60,7 +58,7 @@ export const Footer = () => (
             </div>
           </div>
           <p style={{ color: '#555', fontSize: '13px', lineHeight: 1.7 }}>
-            Arte, estilo e precisão em cada corte. Desde 2016 transformando visuais em São Paulo.
+            Arte, estilo e precisão em cada corte. Desde 2016 transformando visuais em São José – SC.
           </p>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             {socials.map(({ Icon, href, label }) => (
@@ -139,13 +137,10 @@ export const Footer = () => (
             Contato
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <div style={{ color: '#555', fontSize: '14px' }}>Rua Exemplo, 123 – SP</div>
-            <div style={{ color: '#555', fontSize: '14px' }}>(11) 99999-9999</div>
-            <div style={{ color: '#555', fontSize: '14px' }}>
-              contato@ytamarbarbershop.com.br
-            </div>
+            <div style={{ color: '#555', fontSize: '14px' }}>R. Cap. Pedro Leite, 220 – SC</div>
+            <div style={{ color: '#555', fontSize: '14px' }}>(48) 98860-5995</div>
             <a
-              href="https://wa.me/5511999999999"
+              href="https://wa.me/5548988605995"
               target="_blank"
               rel="noopener noreferrer"
               style={{
