@@ -118,7 +118,7 @@ export const Header = () => {
             }
           >
             <MessageCircle size={16} />
-            Agendar
+            WhatsApp
           </Button>
         </div>
 

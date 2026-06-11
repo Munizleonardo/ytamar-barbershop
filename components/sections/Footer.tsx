@@ -58,7 +58,7 @@ export const Footer = () => (
             </div>
           </div>
           <p style={{ color: '#555', fontSize: '13px', lineHeight: 1.7 }}>
-            Arte, estilo e precisão em cada corte. Desde 2016 transformando visuais em São José – SC.
+            Arte, estilo e precisão em cada corte. Desde 2023 transformando visuais em São José – SC.
           </p>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             {socials.map(({ Icon, href, label }) => (
@@ -155,7 +155,7 @@ export const Footer = () => (
               }}
             >
               <MessageCircle size={14} />
-              Agendar pelo WhatsApp
+              Entrar em contato pelo WhatsApp
             </a>
           </div>
         </div>
@@ -166,7 +166,7 @@ export const Footer = () => (
       {/* Bottom bar */}
       <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-3 mt-7">
         <div style={{ color: '#444', fontSize: '13px', textAlign: 'center' }}>
-          © 2024 Ytamar BarberShop. Todos os direitos reservados.
+          © 2026 Ytamar BarberShop. Todos os direitos reservados.
         </div>
       </div>
     </div>

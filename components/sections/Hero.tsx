@@ -114,7 +114,7 @@ export const Hero = () => {
           }}
         >
           <Badge variant="outline" className="mb-5 md:mb-6">
-            Desde 2016 • São José – SC
+            Desde 2023 • São José – SC
           </Badge>
 
           <h1
@@ -169,7 +169,7 @@ export const Hero = () => {
                 )
               }
             >
-              Agendar Horário
+              Entrar em Contato
             </Button>
             <Button
               variant="outline"

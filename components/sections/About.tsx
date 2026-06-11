@@ -7,25 +7,25 @@ import { Separator } from '@/components/ui/separator';
 
 const carouselImages = [
   {
-    src: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=800&q=80',
+    src: '/img1.jpg',
     caption: 'Ambiente premium',
     bg: 'linear-gradient(135deg, #1a1208 0%, #2d2010 60%, #0a0a08 100%)',
     accent: '#c9a84c',
   },
   {
-    src: 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800&q=80',
+    src: '/img2.jpg',
     caption: 'Cortes precisos',
     bg: 'linear-gradient(135deg, #0d0d12 0%, #151520 60%, #080808 100%)',
     accent: '#8899dd',
   },
   {
-    src: 'https://images.unsplash.com/photo-1622287162716-f311baa1a2b8?w=800&q=80',
+    src: '/img3.jpg',
     caption: 'Tradição e estilo',
     bg: 'linear-gradient(135deg, #120d0d 0%, #201515 60%, #080808 100%)',
     accent: '#cc8877',
   },
   {
-    src: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80',
+    src: '/img4.jpg',
     caption: 'Atendimento exclusivo',
     bg: 'linear-gradient(135deg, #0d120d 0%, #152015 60%, #080808 100%)',
     accent: '#77cc88',
@@ -239,7 +239,7 @@ export const About = () => {
             <Separator />
 
             <p style={{ color: '#888', lineHeight: 1.8, fontSize: '15px' }}>
-              Fundada em 2016, a <strong style={{ color: '#d1d1d1' }}>Ytamar BarberShop</strong>{' '}
+              Fundada em 2023, a <strong style={{ color: '#d1d1d1' }}>Ytamar BarberShop</strong>{' '}
               nasceu do sonho de criar um espaço onde tradição e modernidade se encontram. Com mais de
               8 anos de experiência, nos tornamos referência em cortes masculinos de alta qualidade no
               coração de São José – SC.
